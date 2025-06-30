@@ -1,0 +1,265 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom design system for grocery delivery platform */
+
+@layer base {
+  :root {
+    /* Red Wine Theme */
+    --primary: #6E2142;
+    --secondary: #FDF7F2;
+    --accent-green: #9DC183;
+    --accent-peach: #FFDDC1;
+    --background: #FDF7F2;
+    --foreground: #2D1B21;
+    
+    /* Semantic colors */
+    --card: #FFFFFF;
+    --card-foreground: #2D1B21;
+    --border: #E5D5D8;
+    --input: #F0E8EB;
+    --ring: #6E2142;
+    --muted: #F0E8EB;
+    --muted-foreground: #7A6B6F;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: #0F0F0F;
+    --foreground: #F0F0F0;
+    --primary: #B15B6C;
+    --secondary: #1A1A1A;
+    --accent-green: #A855A5; /* Changed from green to burgundy/purple */
+    --accent-peach: #DC8B93; /* Changed to a warmer burgundy tone */
+    --card: #1F1F1F;
+    --card-foreground: #F0F0F0;
+    --border: #2A2A2A;
+    --input: #2A2A2A;
+    --muted: #2A2A2A;
+    --muted-foreground: #A0A0A0;
+  }
+
+  /* Dark mode specific overrides */
+  .dark body {
+    background-color: #0F0F0F;
+    color: #F0F0F0;
+  }
+
+  .dark .bg-background {
+    background-color: #0F0F0F !important;
+  }
+
+  .dark .bg-secondary {
+    background-color: #1A1A1A !important;
+  }
+
+  .dark .bg-card {
+    background-color: #1F1F1F !important;
+  }
+
+  .dark .text-gray-900 {
+    color: #F0F0F0 !important;
+  }
+
+  .dark .text-gray-700 {
+    color: #D1D5DB !important;
+  }
+
+  .dark .text-gray-600 {
+    color: #9CA3AF !important;
+  }
+
+  .dark .border-gray-200 {
+    border-color: #2A2A2A !important;
+  }
+
+  .dark .border-gray-300 {
+    border-color: #374151 !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Enhanced animations */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { 
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(110, 33, 66, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(110, 33, 66, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out;
+}
+
+.animate-gradient {
+  animation: gradient-shift 6s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #6E2142, #B15B6C);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #A855A5, #DC8B93); /* Updated to burgundy tones */
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #FFDDC1, #E6C4A8);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #FDF7F2, #F0E8EB, #E5D5D8);
+}
+
+.dark .gradient-hero {
+  background: linear-gradient(135deg, #0F0F0F, #1A1A1A, #2A2A2A) !important;
+}
+
+/* Dark mode specific backgrounds with burgundy tones */
+.dark .bg-secondary\/50 {
+  background-color: rgba(26, 26, 26, 0.5) !important;
+}
+
+.dark .bg-accent-green\/10 {
+  background-color: rgba(168, 85, 165, 0.1) !important; /* Changed to burgundy */
+}
+
+.dark .border-accent-green\/30 {
+  border-color: rgba(168, 85, 165, 0.3) !important; /* Changed to burgundy */
+}
+
+.dark .from-accent-green\/20 {
+  --tw-gradient-from: rgba(168, 85, 165, 0.2) !important; /* Changed to burgundy */
+}
+
+.dark .to-accent-peach\/20 {
+  --tw-gradient-to: rgba(220, 139, 147, 0.2) !important; /* Changed to burgundy tone */
+}
+
+/* Additional dark mode burgundy overrides */
+.dark .text-accent-green {
+  color: #A855A5 !important; /* Burgundy purple */
+}
+
+.dark .hover\:text-accent-green:hover {
+  color: #DC8B93 !important; /* Lighter burgundy on hover */
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 8px 25px rgba(168, 85, 165, 0.2);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+.dark .focus-ring {
+  @apply dark:focus:ring-accent-burgundy dark:focus:ring-offset-gray-900;
+}
